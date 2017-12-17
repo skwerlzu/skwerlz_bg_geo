@@ -394,7 +394,7 @@ public class BackgroundLocationUpdateService
                     Boolean isAvailable = la.isLocationAvailable();
 
                     if(isAvailable == false) {
-                        Intent mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                        this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                         mIntent.putExtra("error", "Location Provider is not available. Maybe GPS is disabled or the provider was rejected?");
                         getApplicationContext().sendBroadcast(mIntent);
                     }
