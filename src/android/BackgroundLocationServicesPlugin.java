@@ -293,6 +293,14 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             return false;
         }
     }
+    
+    public Boolean tracking() {
+        if(Boolean.parseBoolean(trekActive)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     private Boolean bindServiceToWebview(Context context, Intent intent) {
       Boolean didBind = false;

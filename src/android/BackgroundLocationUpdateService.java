@@ -103,6 +103,7 @@ public class BackgroundLocationUpdateService
     private long  aggressiveInterval   = (long) MILLISECONDS_PER_SECOND * 4;
 
     private Boolean isDebugging;
+    private Boolean trekActive;
     private String notificationTitle = "Background checking";
     private String notificationText = "ENABLED";
     private Boolean useActivityDetection = false;
@@ -174,6 +175,7 @@ public class BackgroundLocationUpdateService
             activitiesInterval   = Integer.parseInt(intent.getStringExtra("activitiesInterval"));
 
             isDebugging = Boolean.parseBoolean(intent.getStringExtra("isDebugging"));
+            trekActive = Boolean.parseBoolean(intent.getStringExtra("trekActive"));
             notificationTitle = intent.getStringExtra("notificationTitle");
             notificationText = intent.getStringExtra("notificationText");
 
