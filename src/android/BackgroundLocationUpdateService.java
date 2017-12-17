@@ -372,8 +372,8 @@ public class BackgroundLocationUpdateService
             if(trekActive == true){
                 showDebugToast(context, "Trek Active. Continue Recording");
                 
-                this.key = FusedLocationProviderApi.KEY_LOCATION_CHANGED;
-                this.location = (Location)intent.getExtras().get(key);
+                String key = FusedLocationProviderApi.KEY_LOCATION_CHANGED;
+                Location location = (Location)intent.getExtras().get(key);
 
                 if (location != null) {
 
@@ -382,19 +382,19 @@ public class BackgroundLocationUpdateService
                     }
 
                   // Go ahead and cache, push to server
-                  this.lastLocation = this.location;
+                  lastLocation = location;
 
                   //This is all for setting the callback for android which currently does not work
-                   this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                   Intent mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                    mIntent.putExtras(createLocationBundle(location));
                    getApplicationContext().sendBroadcast(mIntent);
 
                 } else {
-                    this.la = LocationAvailability.extractLocationAvailability(intent);
-                    this.isAvailable = la.isLocationAvailable();
+                    LocationAvailability la = LocationAvailability.extractLocationAvailability(intent);
+                    Boolean isAvailable = la.isLocationAvailable();
 
                     if(isAvailable == false) {
-                        this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                        Intent mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                         mIntent.putExtra("error", "Location Provider is not available. Maybe GPS is disabled or the provider was rejected?");
                         getApplicationContext().sendBroadcast(mIntent);
                     }
