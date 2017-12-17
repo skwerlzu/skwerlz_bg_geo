@@ -370,6 +370,7 @@ public class BackgroundLocationUpdateService
             showDebugToast(context, "Detected Activity was STILL");
             if(trekActive){
                 showDebugToast(context, "Trek Active. Continue Recording");
+                startRecording();
             } else {
                 showDebugToast(context, "Trek Not Active. Pause Recording");
                 stopRecording();
@@ -448,7 +449,7 @@ public class BackgroundLocationUpdateService
 
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             fastestSpeed = true;
-           
+           trekActive = true;
             
         }
     }

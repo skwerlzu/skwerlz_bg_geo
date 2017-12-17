@@ -273,6 +273,8 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
           detectedActivitiesCallback = callbackContext;
         } else if(ACTION_AGGRESSIVE_TRACKING.equalsIgnoreCase(action)) {
             result = true;
+                this.trekActive = "true";
+            
             if(isEnabled) {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.CHANGE_AGGRESSIVE));
                 callbackContext.success();
