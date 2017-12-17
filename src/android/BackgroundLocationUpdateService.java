@@ -439,7 +439,7 @@ public class BackgroundLocationUpdateService
     }
 
     private void setStartAggressiveTrackingOn() {
-       showDebugToast(context, "Aggressive Tracking Fired");
+       
             detachRecorder();
 
             desiredAccuracy = 10;
