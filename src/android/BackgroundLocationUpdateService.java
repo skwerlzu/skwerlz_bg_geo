@@ -110,6 +110,8 @@ public class BackgroundLocationUpdateService
     private Boolean stopOnTerminate;
     private Boolean isRequestingActivity = false;
     private Boolean isRecording = false;
+    
+    private Boolean trekking = false;
 
     private ToneGenerator toneGenerator;
 
