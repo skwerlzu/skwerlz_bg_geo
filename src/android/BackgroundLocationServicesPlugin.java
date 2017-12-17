@@ -277,7 +277,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             
             if(isEnabled) {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.CHANGE_AGGRESSIVE));
-                callbackContext.success("Aggressive Tracking Enabled");
+                
             } else {
                 callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
             }
@@ -288,8 +288,9 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
                 
-                callbackContext.success("Trek Started");
                 
+                //callbackContext.success("Trek Started");
+                locationUpdateCallback = callbackContext;
             } else {
                 callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
             }
