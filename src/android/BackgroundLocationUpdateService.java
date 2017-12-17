@@ -349,9 +349,9 @@ public class BackgroundLocationUpdateService
         getApplicationContext().sendBroadcast(mIntent);
         Log.w(TAG, "Activity is recording" + isRecording);
         if(trekActive){
-            showDebugToast(context, 'Trek is Active');
-        }else{
-            showDebugToast(context, 'Trek Not Active');
+            showDebugToast(context, "Trek Active");
+        } else {
+            showDebugToast(context, "Trek Not Active");
         }
         
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
