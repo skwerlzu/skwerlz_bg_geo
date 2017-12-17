@@ -281,10 +281,24 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             }
         } else if(ACTION_START_TREK.equalsIgnoreCase(action)) {
             result = true;
-            trekActive = "true";
+            
+            if(isEnabled) {
+                this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
+                this.trekActive = "true";
+                callbackContext.success();
+            } else {
+                callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
+            }
         } else if(ACTION_STOP_TREK.equalsIgnoreCase(action)) {
             result = true;
-            trekActive = "false";
+            
+            if(isEnabled) {
+                this.cordova.getActivity().sendBroadcast(new Intent(Constants.STOP_TREK));
+                this.trekActive = "false";
+                callbackContext.success();
+            } else {
+                callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
+            }
         }
 
         return result;
