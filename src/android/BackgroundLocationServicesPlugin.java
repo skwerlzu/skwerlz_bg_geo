@@ -159,8 +159,8 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                         } else {
                             JSONObject data = locationToJSON(intent.getExtras());
                             
-                           // pluginResult = new PluginResult(PluginResult.Status.OK, data);
-                            pluginResult = new PluginResult(PluginResult.Status.OK, intent.toString());
+                           pluginResult = new PluginResult(PluginResult.Status.OK, data);
+                            //pluginResult = new PluginResult(PluginResult.Status.OK, intent.toString());
                         }
 
                         if(pluginResult != null) {
@@ -290,8 +290,8 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
                 
-                
-                callbackContext.success();
+                Intent ts = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                callbackContext.success(ts.toString());
                 
             } else {
                 callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
