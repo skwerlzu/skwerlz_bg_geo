@@ -377,6 +377,17 @@ public class BackgroundLocationUpdateService
                 stopRecording();
             }
             
+        } else if(lastActivity.getType() == DetectedActivity.STILL && !isRecording) {
+            showDebugToast(context, "Detected Activity was STILL");
+            showDebugToast(context, trekActive.toString());
+            if(trekActive == true){
+                showDebugToast(context, "Trek Active. Start Recording");
+                startRecording();
+            } else {
+                showDebugToast(context, "Trek Not Active. Pause Recording");
+              
+            }
+            
         } else if(lastActivity.getType() != DetectedActivity.STILL && !isRecording) {
             showDebugToast(context, "Detected Activity was ACTIVE, Start Recording");
             startRecording();
@@ -457,13 +468,7 @@ public class BackgroundLocationUpdateService
     }
     
     private void setStartTrekTracking() {
-        detachRecorder();
-
-            desiredAccuracy = 10;
-            fastestInterval = (long) (aggressiveInterval / 2);
-            interval = aggressiveInterval;
-
-            attachRecorder();
+        
             trekActive = true;
     }
     
