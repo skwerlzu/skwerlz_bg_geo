@@ -285,11 +285,11 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             result = true;
             
             if(isEnabled) {
-                this.cordova.getActivity().sendBroadcast(new Intent(Constants.CALLBACK_LOCATION_UPDATE));
+                this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
                 
                 
-                callbackContext.success();
+                callbackContext.success(this.locationToJSON(Constants.CALLBACK_LOCATION_UPDATE.getExtras()));
                 
             } else {
                 callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
