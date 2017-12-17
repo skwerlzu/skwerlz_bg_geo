@@ -129,7 +129,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
       }
     };
 
-    private BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
+    public BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
             if(debug()) {
