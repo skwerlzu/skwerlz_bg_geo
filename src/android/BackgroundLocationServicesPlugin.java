@@ -285,7 +285,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             result = true;
             
             if(isEnabled) {
-                this.cordova.getActivity().sendBroadcast(new Intent(Constants.LOCATION_UPDATE));
+                this.cordova.getActivity().sendBroadcast(new Intent(Constants.CALLBACK_LOCATION_UPDATE));
                 this.trekActive = "true";
                 
                 
