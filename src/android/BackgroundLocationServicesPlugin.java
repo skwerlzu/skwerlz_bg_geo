@@ -129,7 +129,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
       }
     };
 
-    public BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver locationUpdateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
             if(debug()) {
@@ -287,7 +287,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             if(isEnabled) {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
-                locationUpdateReceiver();
+                
                 callbackContext.success("Trek Started");
                 
             } else {
