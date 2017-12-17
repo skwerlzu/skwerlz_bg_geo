@@ -368,7 +368,8 @@ public class BackgroundLocationUpdateService
         
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
             showDebugToast(context, "Detected Activity was STILL");
-            if(trekActive){
+            showDebugToast(context, trekActive.toString());
+            if(trekActive == true){
                 showDebugToast(context, "Trek Active. Continue Recording");
                 startRecording();
             } else {
