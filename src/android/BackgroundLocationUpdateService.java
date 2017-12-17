@@ -1,4 +1,4 @@
-package com.flybuy.cordova.location;
+package com.skwerlz.cordova.location;
 
 import java.util.List;
 import java.util.Iterator;

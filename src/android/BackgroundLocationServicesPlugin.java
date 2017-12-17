@@ -1,4 +1,4 @@
-package com.flybuy.cordova.location;
+package com.skwerlz.cordova.location;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;

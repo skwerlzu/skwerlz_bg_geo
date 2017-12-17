@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="org.flybuy.cordova.background-location-services"
+    id="skwerlz.cordova.background-location-services"
     version="1.1.1">
 
-    <name>CDVBackgroundLocationServices</name>
+    <name>Skwerlz BG Geo</name>
     <description>Background Location Services For Cordova</description>
     <license>MIT</license>
     <keywords></keywords>
@@ -21,16 +21,16 @@
     <platform name="android">
         <framework src="com.google.android.gms:play-services-location:+" />
 
-        <source-file src="src/android/BackgroundLocationServicesPlugin.java" target-dir="src/com/flybuy/cordova/location"/>
-        <source-file src="src/android/BackgroundLocationUpdateService.java" target-dir="src/com/flybuy/cordova/location"/>
-        <source-file src="src/android/PermissionHelper.java" target-dir="src/com/flybuy/cordova/location"/>
-        <source-file src="src/android/Constants.java" target-dir="src/com/flybuy/cordova/location"/>
+        <source-file src="src/android/BackgroundLocationServicesPlugin.java" target-dir="src/com/skwerlz/cordova/location"/>
+        <source-file src="src/android/BackgroundLocationUpdateService.java" target-dir="src/com/skwerlz/cordova/location"/>
+        <source-file src="src/android/PermissionHelper.java" target-dir="src/com/skwerlz/cordova/location"/>
+        <source-file src="src/android/Constants.java" target-dir="src/com/skwerlz/cordova/location"/>
 
         <source-file src="src/android/location_icon.png" target-dir="res/drawable"/>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-            <service android:name="com.flybuy.cordova.location.BackgroundLocationUpdateService" android:enabled="true"/>
+            <service android:name="com.skwerlz.cordova.location.BackgroundLocationUpdateService" android:enabled="true"/>
         </config-file>
 
 
@@ -46,7 +46,7 @@
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="BackgroundLocationServices">
-                <param name="android-package" value="com.flybuy.cordova.location.BackgroundLocationServicesPlugin"/>
+                <param name="android-package" value="com.skwerlz.cordova.location.BackgroundLocationServicesPlugin"/>
             </feature>
         </config-file>
 
