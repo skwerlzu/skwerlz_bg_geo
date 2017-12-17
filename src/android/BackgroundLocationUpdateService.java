@@ -439,7 +439,7 @@ public class BackgroundLocationUpdateService
     }
 
     private void setStartAggressiveTrackingOn() {
-        if(!fastestSpeed && this.isRecording) {
+       showDebugToast(context, "Aggressive Tracking Fired");
             detachRecorder();
 
             desiredAccuracy = 10;
@@ -447,12 +447,13 @@ public class BackgroundLocationUpdateService
             interval = aggressiveInterval;
 
             attachRecorder();
-
+            
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             fastestSpeed = true;
-           trekActive = true;
+          
             
-        }
+        
+         trekActive = true;
     }
     
     private void setStartTrekTracking() {
