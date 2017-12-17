@@ -210,7 +210,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
               updateServiceIntent.putExtra("aggressiveInterval", aggressiveInterval);
               updateServiceIntent.putExtra("activitiesInterval", activitiesInterval);
               updateServiceIntent.putExtra("useActivityDetection", useActivityDetection);
-
+            this.trekActive = "false";
             if (hasPermisssion()) {
                 isServiceBound = bindServiceToWebview(activity, updateServiceIntent);
                 isEnabled = true;
