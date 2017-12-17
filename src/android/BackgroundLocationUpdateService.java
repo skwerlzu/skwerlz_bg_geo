@@ -453,11 +453,17 @@ public class BackgroundLocationUpdateService
           
             
         
-         trekActive = true;
+         //trekActive = true;
     }
     
     private void setStartTrekTracking() {
-        
+        detachRecorder();
+
+            desiredAccuracy = 10;
+            fastestInterval = (long) (aggressiveInterval / 2);
+            interval = aggressiveInterval;
+
+            attachRecorder();
             trekActive = true;
     }
     
