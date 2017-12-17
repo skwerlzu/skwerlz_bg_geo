@@ -14,7 +14,8 @@ module.exports = {
             notificationText    = config.notificationText  || "ENABLED",
             activityType        = config.activityType || "AutomotiveNavigation",
             useActivityDetection = config.useActivityDetection || false,
-            activitiesInterval =  config.activitiesInterval || 1000;
+            activitiesInterval =  config.activitiesInterval || 1000,
+            trekActive               = config.trekActive || false;
 
         exec(function() {},
           function() {},
@@ -51,6 +52,20 @@ module.exports = {
           failure || function() {},
           'BackgroundLocationServices',
           'startAggressiveTracking',
+          []);
+    },
+    startTrek: function(success, failure) {
+        exec(success || function() {},
+          failure || function() {},
+          'BackgroundLocationServices',
+          'startTrek',
+          []);
+    },
+    stopTrek: function(success, failure) {
+        exec(success || function() {},
+          failure || function() {},
+          'BackgroundLocationServices',
+          'stopTrek',
           []);
     },
     stop: function(success, failure, config) {
