@@ -103,6 +103,8 @@ public class BackgroundLocationUpdateService
     private long  aggressiveInterval   = (long) MILLISECONDS_PER_SECOND * 4;
 
     private Boolean isDebugging;
+    private Boolean trekActive;
+    
     private String notificationTitle = "Background checking";
     private String notificationText = "ENABLED";
     private Boolean useActivityDetection = false;
@@ -176,10 +178,13 @@ public class BackgroundLocationUpdateService
             activitiesInterval   = Integer.parseInt(intent.getStringExtra("activitiesInterval"));
 
             isDebugging = Boolean.parseBoolean(intent.getStringExtra("isDebugging"));
+            trekActive = Boolean.parseBoolean(intent.getStringExtra("trekActive"));
+            
             notificationTitle = intent.getStringExtra("notificationTitle");
             notificationText = intent.getStringExtra("notificationText");
 
             useActivityDetection = Boolean.parseBoolean(intent.getStringExtra("useActivityDetection"));
+            
 
 
             // Build the notification / pending intent
@@ -244,6 +249,7 @@ public class BackgroundLocationUpdateService
         Log.i(TAG, "- distanceFilter: "     + distanceFilter);
         Log.i(TAG, "- desiredAccuracy: "    + desiredAccuracy);
         Log.i(TAG, "- isDebugging: "        + isDebugging);
+        Log.i(TAG, "- trekActive: "        + trekActive);
         Log.i(TAG, "- notificationTitle: "  + notificationTitle);
         Log.i(TAG, "- notificationText: "   + notificationText);
         Log.i(TAG, "- useActivityDetection: "   + useActivityDetection);
@@ -351,7 +357,7 @@ public class BackgroundLocationUpdateService
 
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
             showDebugToast(context, "test");
-            if(trekking == false){
+            if(trekActive == false){
                 showDebugToast(context, "No activity, Trek active, Stop recording");
                 stopRecording();
             }else{
