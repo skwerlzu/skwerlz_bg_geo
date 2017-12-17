@@ -348,15 +348,17 @@ public class BackgroundLocationUpdateService
         mIntent.putExtra(Constants.ACTIVITY_EXTRA, detectedActivities);
         getApplicationContext().sendBroadcast(mIntent);
         Log.w(TAG, "Activity is recording" + isRecording);
-        if(trekActive){
-            showDebugToast(context, "Trek Active");
-        } else {
-            showDebugToast(context, "Trek Not Active");
-        }
+        
         
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
-            showDebugToast(context, "Detected Activity was STILL, Stop recording");
-            stopRecording();
+            showDebugToast(context, "Detected Activity was STILL");
+            if(trekActive){
+                showDebugToast(context, "Trek Active. Continue Recording");
+            } else {
+                showDebugToast(context, "Trek Not Active. Pause Recording");
+                stopRecording();
+            }
+            
         } else if(lastActivity.getType() != DetectedActivity.STILL && !isRecording) {
             showDebugToast(context, "Detected Activity was ACTIVE, Start Recording");
             startRecording();

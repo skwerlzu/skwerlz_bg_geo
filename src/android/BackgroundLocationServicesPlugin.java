@@ -37,6 +37,8 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
     public static final String ACTION_STOP = "stop";
     public static final String ACTION_CONFIGURE = "configure";
     public static final String ACTION_SET_CONFIG = "setConfig";
+    public static final String ACTION_START_TREK = "startTrek";
+    public static final String ACTION_STOP_TREK = "stopTrek";
     public static final String ACTION_AGGRESSIVE_TRACKING = "startAggressiveTracking";
     public static final String ACTION_GET_VERSION = "getVersion";
     public static final String ACTION_REGISTER_FOR_LOCATION_UPDATES = "registerForLocationUpdates";
