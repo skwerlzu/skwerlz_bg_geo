@@ -263,7 +263,7 @@ public class BackgroundLocationUpdateService
         }
     };
     
-    private BroadcastReceiver startTrekeReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver startTrekReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             setStartTrekTrackingOn();
