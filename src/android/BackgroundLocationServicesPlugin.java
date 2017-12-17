@@ -287,43 +287,9 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
             if(isEnabled) {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
-                callbackContext.success("Trek Started");
-                if (locationUpdateCallback != null) {
-
                 
-
-                final Bundle b = intent.getExtras();
-                final String errorString = b.getString("error");
-
-                cordova.getThreadPool().execute(new Runnable() {
-                    public void run() {
-                        PluginResult pluginResult;
-
-                        if(b == null) {
-                            String unkownError = "An Unkown Error has occurred, there was no Location attached";
-                            pluginResult = new PluginResult(PluginResult.Status.ERROR, unkownError);
-
-                        } else if(errorString != null) {
-                            Log.d(TAG, "ERROR " + errorString);
-                            pluginResult = new PluginResult(PluginResult.Status.ERROR, errorString);
-
-                        } else {
-                            JSONObject data = locationToJSON(intent.getExtras());
-                            pluginResult = new PluginResult(PluginResult.Status.OK, data);
-                        }
-
-                        if(pluginResult != null) {
-                            pluginResult.setKeepCallback(true);
-                            locationUpdateCallback.sendPluginResult(pluginResult);
-                        }
-                    }
-                });
-            } else {
-                if(debug()) {
-                  Toast.makeText(context, "We received a location update but locationUpdate was null", Toast.LENGTH_SHORT).show();
-                }
-                Log.w(TAG, "WARNING LOCATION UPDATE CALLBACK IS NULL, PLEASE RUN REGISTER LOCATION UPDATES");
-            }
+                JSONObject data = locationToJSON(intent.getExtras());
+                callbackContext.success(JSONObject);
             } else {
                 callbackContext.error("Tracking not enabled, need to start tracking before starting aggressive tracking");
             }
