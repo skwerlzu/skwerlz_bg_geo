@@ -448,22 +448,21 @@ public class BackgroundLocationUpdateService
 
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             fastestSpeed = true;
-            trekActive = true;
+           
+            
         }
     }
     
     private void setStartTrekTracking() {
-        if(!trekActive) {
-            Log.e(TAG, "Changed Location params" + locationRequest.toString());
+        
             trekActive = true;
-        }
+      showDebugToast(context, "Trek Active set to true");
     }
     
     private void setStopTrekTracking() {
-        if(trekActive) {
-            Log.e(TAG, "Changed Location params" + locationRequest.toString());
+        
             trekActive = false;
-        }
+       showDebugToast(context, "Trek Active set to false");
     }
 
     public void startDetectingActivities() {
