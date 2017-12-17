@@ -385,7 +385,7 @@ public class BackgroundLocationUpdateService
                   lastLocation = location;
 
                   //This is all for setting the callback for android which currently does not work
-                   Intent mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                   this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                    mIntent.putExtras(createLocationBundle(location));
                    getApplicationContext().sendBroadcast(mIntent);
 
