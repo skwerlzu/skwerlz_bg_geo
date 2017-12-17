@@ -103,7 +103,7 @@ public class BackgroundLocationUpdateService
     private long  aggressiveInterval   = (long) MILLISECONDS_PER_SECOND * 4;
 
     private Boolean isDebugging;
-    private Boolean trekActive;
+    private Boolean trekActive = false;
     private String notificationTitle = "Background checking";
     private String notificationText = "ENABLED";
     private Boolean useActivityDetection = false;
@@ -266,14 +266,14 @@ public class BackgroundLocationUpdateService
     private BroadcastReceiver startTrekReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            setStartTrekTrackingOn();
+            setStartTrekTracking();
         }
     };
     
     private BroadcastReceiver stopTrekReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            setStopTrekTrackingOn();
+            setStopTrekTracking();
         }
     };
 
@@ -448,17 +448,18 @@ public class BackgroundLocationUpdateService
 
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             fastestSpeed = true;
+            trekActive = true;
         }
     }
     
-    private void setStartTrekTrackingOn() {
+    private void setStartTrekTracking() {
         if(!trekActive) {
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             trekActive = true;
         }
     }
     
-    private void setStopTrekTrackingOn() {
+    private void setStopTrekTracking() {
         if(trekActive) {
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             trekActive = false;
