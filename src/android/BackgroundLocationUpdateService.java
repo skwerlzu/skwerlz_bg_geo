@@ -385,18 +385,18 @@ public class BackgroundLocationUpdateService
                   lastLocation = location;
 
                   //This is all for setting the callback for android which currently does not work
-                   this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                   Intent tIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                    mIntent.putExtras(createLocationBundle(location));
-                   getApplicationContext().sendBroadcast(mIntent);
+                   getApplicationContext().sendBroadcast(tIntent);
 
                 } else {
                     LocationAvailability la = LocationAvailability.extractLocationAvailability(intent);
                     Boolean isAvailable = la.isLocationAvailable();
 
                     if(isAvailable == false) {
-                        this.mIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                        Intent tIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                         mIntent.putExtra("error", "Location Provider is not available. Maybe GPS is disabled or the provider was rejected?");
-                        getApplicationContext().sendBroadcast(mIntent);
+                        getApplicationContext().sendBroadcast(tIntent);
                     }
                 }
                 
