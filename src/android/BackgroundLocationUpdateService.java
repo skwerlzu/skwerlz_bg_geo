@@ -456,13 +456,11 @@ public class BackgroundLocationUpdateService
     private void setStartTrekTracking() {
         
             trekActive = true;
-      showDebugToast(context, "Trek Active set to true");
     }
     
     private void setStopTrekTracking() {
         
             trekActive = false;
-       showDebugToast(context, "Trek Active set to false");
     }
 
     public void startDetectingActivities() {
