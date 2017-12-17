@@ -59,6 +59,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
 
     private String distanceFilter = "30";
     private String isDebugging = "false";
+    private String trekActive = "false";
     private String notificationTitle = "Location Tracking";
     private String notificationText = "ENABLED";
     private String stopOnTerminate = "false";
@@ -199,6 +200,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
               updateServiceIntent.putExtra("distanceFilter", distanceFilter);
               updateServiceIntent.putExtra("desiredAccuracy", desiredAccuracy);
               updateServiceIntent.putExtra("isDebugging", isDebugging);
+              updateServiceIntent.putExtra("trekActive", trekActive);
               updateServiceIntent.putExtra("notificationTitle", notificationTitle);
               updateServiceIntent.putExtra("notificationText", notificationText);
               updateServiceIntent.putExtra("interval", interval);
@@ -245,6 +247,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 //this.activityType = data.getString(8);
                 this.useActivityDetection = data.getString(9);
                 this.activitiesInterval = data.getString(10);
+                
 
 
 
