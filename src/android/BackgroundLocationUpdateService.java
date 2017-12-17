@@ -348,9 +348,9 @@ public class BackgroundLocationUpdateService
         Log.w(TAG, "Activity is recording" + isRecording);
 
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
-            
+            showDebugToast(context, "test");
             if(trekking == false){
-                showDebugToast(context, "Trekking false, Still Detected, Stop recording");
+                showDebugToast(context, "No activity, Trek active, Stop recording");
                 stopRecording();
             }else{
                 showDebugToast(context, "Aggressive Tracking is activated. Letting recorder run.");
