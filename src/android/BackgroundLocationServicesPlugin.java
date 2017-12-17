@@ -158,7 +158,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
 
                         } else {
                             JSONObject data = locationToJSON(intent.getExtras());
-                            Toast.makeText(context, locationToJSON(intent.getExtras()).toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, data.toString(), Toast.LENGTH_SHORT).show();
                             pluginResult = new PluginResult(PluginResult.Status.OK, data);
                         }
 
