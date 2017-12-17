@@ -1,4 +1,4 @@
-package com.skwerlzu.cordova.location;
+package com.flybuy.cordova.location;
 
 import java.util.List;
 import java.util.Iterator;
@@ -103,8 +103,6 @@ public class BackgroundLocationUpdateService
     private long  aggressiveInterval   = (long) MILLISECONDS_PER_SECOND * 4;
 
     private Boolean isDebugging;
-    private Boolean trekActive;
-    
     private String notificationTitle = "Background checking";
     private String notificationText = "ENABLED";
     private Boolean useActivityDetection = false;
@@ -112,8 +110,6 @@ public class BackgroundLocationUpdateService
     private Boolean stopOnTerminate;
     private Boolean isRequestingActivity = false;
     private Boolean isRecording = false;
-    
-   
 
     private ToneGenerator toneGenerator;
 
@@ -178,13 +174,10 @@ public class BackgroundLocationUpdateService
             activitiesInterval   = Integer.parseInt(intent.getStringExtra("activitiesInterval"));
 
             isDebugging = Boolean.parseBoolean(intent.getStringExtra("isDebugging"));
-            trekActive = Boolean.parseBoolean(intent.getStringExtra("trekActive"));
-            
             notificationTitle = intent.getStringExtra("notificationTitle");
             notificationText = intent.getStringExtra("notificationText");
 
             useActivityDetection = Boolean.parseBoolean(intent.getStringExtra("useActivityDetection"));
-            
 
 
             // Build the notification / pending intent
@@ -249,7 +242,6 @@ public class BackgroundLocationUpdateService
         Log.i(TAG, "- distanceFilter: "     + distanceFilter);
         Log.i(TAG, "- desiredAccuracy: "    + desiredAccuracy);
         Log.i(TAG, "- isDebugging: "        + isDebugging);
-        Log.i(TAG, "- trekActive: "        + trekActive);
         Log.i(TAG, "- notificationTitle: "  + notificationTitle);
         Log.i(TAG, "- notificationText: "   + notificationText);
         Log.i(TAG, "- useActivityDetection: "   + useActivityDetection);
@@ -356,15 +348,8 @@ public class BackgroundLocationUpdateService
         Log.w(TAG, "Activity is recording" + isRecording);
 
         if(lastActivity.getType() == DetectedActivity.STILL && isRecording) {
-            showDebugToast(context, "test");
-            
-            
-                showDebugToast(context, "No activity, Trek active, Stop recording");
-                stopRecording();
-            
-                showDebugToast(context, "Aggressive Tracking is activated. Letting recorder run.");
-            
-            
+            showDebugToast(context, "Detected Activity was STILL, Stop recording");
+            stopRecording();
         } else if(lastActivity.getType() != DetectedActivity.STILL && !isRecording) {
             showDebugToast(context, "Detected Activity was ACTIVE, Start Recording");
             startRecording();

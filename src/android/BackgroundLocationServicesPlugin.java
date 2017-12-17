@@ -1,4 +1,4 @@
-package com.skwerlzu.cordova.location;
+package com.flybuy.cordova.location;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -48,8 +48,6 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
     private Boolean inBackground = false;
     private boolean isServiceBound = false;
 
-    
-    
     private String desiredAccuracy = "1000";
 
     private Intent updateServiceIntent;
@@ -61,7 +59,6 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
 
     private String distanceFilter = "30";
     private String isDebugging = "false";
-    private String trekActive = "false";
     private String notificationTitle = "Location Tracking";
     private String notificationText = "ENABLED";
     private String stopOnTerminate = "false";
@@ -202,7 +199,6 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
               updateServiceIntent.putExtra("distanceFilter", distanceFilter);
               updateServiceIntent.putExtra("desiredAccuracy", desiredAccuracy);
               updateServiceIntent.putExtra("isDebugging", isDebugging);
-              updateServiceIntent.putExtra("trekActive", trekActive);
               updateServiceIntent.putExtra("notificationTitle", notificationTitle);
               updateServiceIntent.putExtra("notificationText", notificationText);
               updateServiceIntent.putExtra("interval", interval);
@@ -244,13 +240,11 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 this.fastestInterval = data.getString(3);
                 this.aggressiveInterval = data.getString(4);
                 this.isDebugging = data.getString(5);
-                this.trekActive = data.getString(11);
                 this.notificationTitle = data.getString(6);
                 this.notificationText = data.getString(7);
                 //this.activityType = data.getString(8);
                 this.useActivityDetection = data.getString(9);
                 this.activitiesInterval = data.getString(10);
-                
 
 
 
@@ -274,7 +268,6 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
           detectedActivitiesCallback = callbackContext;
         } else if(ACTION_AGGRESSIVE_TRACKING.equalsIgnoreCase(action)) {
             result = true;
-            trekActive = "true";
             if(isEnabled) {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.CHANGE_AGGRESSIVE));
                 callbackContext.success();
@@ -292,14 +285,6 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
 
     public Boolean debug() {
         if(Boolean.parseBoolean(isDebugging)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public Boolean trekActive() {
-        if(Boolean.parseBoolean(trekActive)) {
             return true;
         } else {
             return false;

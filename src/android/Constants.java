@@ -1,4 +1,4 @@
-package com.skwerlzu.cordova.location;
+package com.flybuy.cordova.location;
 
 import com.google.android.gms.location.ActivityRecognitionResult;
 import com.google.android.gms.location.DetectedActivity;
@@ -9,7 +9,7 @@ import android.content.res.Resources;
 public class Constants {
   private Constants() {}
 
-  private static final String P_NAME = "com.skwerlzu.cordova.location.";
+  private static final String P_NAME = "com.flybuy.cordova.location.";
 
   //Receiver Paths for both
   public static final String STOP_RECORDING  = P_NAME + "STOP_RECORDING";

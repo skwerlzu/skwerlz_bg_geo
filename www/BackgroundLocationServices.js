@@ -14,14 +14,13 @@ module.exports = {
             notificationText    = config.notificationText  || "ENABLED",
             activityType        = config.activityType || "AutomotiveNavigation",
             useActivityDetection = config.useActivityDetection || false,
-            activitiesInterval =  config.activitiesInterval || 1000,
-            trekActive =  config.trekActive || false;
+            activitiesInterval =  config.activitiesInterval || 1000;
 
         exec(function() {},
           function() {},
           'BackgroundLocationServices',
           'configure',
-          [distanceFilter, desiredAccuracy,  interval, fastestInterval, aggressiveInterval, debug, notificationTitle, notificationText, activityType, useActivityDetection, activitiesInterval, trekActive]
+          [distanceFilter, desiredAccuracy,  interval, fastestInterval, aggressiveInterval, debug, notificationTitle, notificationText, activityType, useActivityDetection, activitiesInterval]
         );
     },
     registerForLocationUpdates : function(success, failure, config) {
