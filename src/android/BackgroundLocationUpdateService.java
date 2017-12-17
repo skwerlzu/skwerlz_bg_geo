@@ -152,6 +152,8 @@ public class BackgroundLocationUpdateService
         registerReceiver(startRecordingReceiver, new IntentFilter(Constants.START_RECORDING));
         registerReceiver(stopRecordingReceiver, new IntentFilter(Constants.STOP_RECORDING));
         registerReceiver(startAggressiveReceiver, new IntentFilter(Constants.CHANGE_AGGRESSIVE));
+        registerReceiver(startTrekReceiver, new IntentFilter(Constants.START_TREK));
+        registerReceiver(stopTrekReceiver, new IntentFilter(Constants.STOP_TREK));
 
         // Location criteria
         criteria = new Criteria();
@@ -258,6 +260,20 @@ public class BackgroundLocationUpdateService
         @Override
         public void onReceive(Context context, Intent intent) {
             setStartAggressiveTrackingOn();
+        }
+    };
+    
+    private BroadcastReceiver startTrekeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setStartTrekTrackingOn();
+        }
+    };
+    
+    private BroadcastReceiver stopTrekReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setStopTrekTrackingOn();
         }
     };
 
@@ -432,6 +448,20 @@ public class BackgroundLocationUpdateService
 
             Log.e(TAG, "Changed Location params" + locationRequest.toString());
             fastestSpeed = true;
+        }
+    }
+    
+    private void setStartTrekTrackingOn() {
+        if(!trekActive) {
+            Log.e(TAG, "Changed Location params" + locationRequest.toString());
+            trekActive = true;
+        }
+    }
+    
+    private void setStopTrekTrackingOn() {
+        if(trekActive) {
+            Log.e(TAG, "Changed Location params" + locationRequest.toString());
+            trekActive = false;
         }
     }
 
