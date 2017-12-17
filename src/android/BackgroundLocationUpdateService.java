@@ -380,8 +380,6 @@ public class BackgroundLocationUpdateService
         } else if(lastActivity.getType() != DetectedActivity.STILL && !isRecording) {
             showDebugToast(context, "Detected Activity was ACTIVE, Start Recording");
             startRecording();
-        }else{
-        startRecording();
         }
         //else do nothing
       }
