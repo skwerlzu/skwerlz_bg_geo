@@ -290,9 +290,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 callbackContext.success("Trek Started");
                 if (locationUpdateCallback != null) {
 
-                if(debug()) {
-                  Toast.makeText(context, "We received a location update", Toast.LENGTH_SHORT).show();
-                }
+                
 
                 final Bundle b = intent.getExtras();
                 final String errorString = b.getString("error");
