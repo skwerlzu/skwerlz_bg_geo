@@ -302,7 +302,7 @@ public class BackgroundLocationUpdateService
             if(useActivityDetection) {
               stopDetectingActivities();
             }
-
+            trekActive = false;
             stopRecording();
         }
     };
@@ -371,7 +371,7 @@ public class BackgroundLocationUpdateService
             showDebugToast(context, trekActive.toString());
             if(trekActive == true){
                 showDebugToast(context, "Trek Active. Continue Recording");
-                startRecording();
+                
             } else {
                 showDebugToast(context, "Trek Not Active. Pause Recording");
                 stopRecording();
@@ -380,6 +380,8 @@ public class BackgroundLocationUpdateService
         } else if(lastActivity.getType() != DetectedActivity.STILL && !isRecording) {
             showDebugToast(context, "Detected Activity was ACTIVE, Start Recording");
             startRecording();
+        }else{
+        startRecording();
         }
         //else do nothing
       }
