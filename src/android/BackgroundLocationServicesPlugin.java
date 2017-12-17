@@ -48,7 +48,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
     private Boolean inBackground = false;
     private boolean isServiceBound = false;
 
-    
+     private Boolean trekking = false;
     
     private String desiredAccuracy = "1000";
 

@@ -111,7 +111,7 @@ public class BackgroundLocationUpdateService
     private Boolean isRequestingActivity = false;
     private Boolean isRecording = false;
     
-    private Boolean trekking = false;
+   
 
     private ToneGenerator toneGenerator;
 
