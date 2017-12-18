@@ -159,8 +159,8 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                         } else {
                             JSONObject data = locationToJSON(intent.getExtras());
                             
-                           pluginResult = new PluginResult(PluginResult.Status.OK, data);
-                            //pluginResult = new PluginResult(PluginResult.Status.OK, intent.toString());
+                           //pluginResult = new PluginResult(PluginResult.Status.OK, data);
+                            pluginResult = new PluginResult(PluginResult.Status.OK, intent.toString());
                         }
                         
                         if(pluginResult != null) {
@@ -295,7 +295,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 //final Bundle tb = new Bundle(ts);
                 JSONObject tj = locationToJSON(ts.getExtras());
                 //callbackContext.success(locationToJSON(tj).toString());
-                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, tj);
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, ts.toString());
                         if(pluginResult != null) {
                             pluginResult.setKeepCallback(true);
                             locationUpdateCallback.sendPluginResult(pluginResult);
