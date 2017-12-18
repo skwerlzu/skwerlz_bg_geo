@@ -290,7 +290,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 this.cordova.getActivity().sendBroadcast(new Intent(Constants.START_TREK));
                 this.trekActive = "true";
                 
-                Intent ts = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
+                final Intent ts = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                 final Bundle tb = new ts.getExtras();
                 callbackContext.success(locationToJSON(tb));
                 
