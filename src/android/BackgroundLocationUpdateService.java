@@ -383,7 +383,7 @@ public class BackgroundLocationUpdateService
 
                   // Go ahead and cache, push to server
                   lastLocation = location;
-
+                  showDebugToast(context, location.toString());
                   //This is all for setting the callback for android which currently does not work
                    Intent tIntent = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                    tIntent.putExtras(createLocationBundle(location));
