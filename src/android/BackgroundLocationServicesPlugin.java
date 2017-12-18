@@ -295,7 +295,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 //final Bundle tb = new Bundle(ts);
                 JSONObject tj = locationToJSON(ts.getExtras());
                 //callbackContext.success(locationToJSON(tj).toString());
-                pluginResult = new PluginResult(PluginResult.Status.OK, tj);
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, tj);
                         if(pluginResult != null) {
                             pluginResult.setKeepCallback(true);
                             locationUpdateCallback.sendPluginResult(pluginResult);
