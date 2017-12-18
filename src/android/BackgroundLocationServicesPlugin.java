@@ -293,7 +293,7 @@ public class BackgroundLocationServicesPlugin extends CordovaPlugin {
                 final Intent ts = new Intent(Constants.CALLBACK_LOCATION_UPDATE);
                 
                 //final Bundle tb = new Bundle(ts);
-                JSONObject tj = locationToJSON(tb.getExtras());
+                JSONObject tj = locationToJSON(ts.getExtras());
                 callbackContext.success(locationToJSON(tj));
                 
             } else {
